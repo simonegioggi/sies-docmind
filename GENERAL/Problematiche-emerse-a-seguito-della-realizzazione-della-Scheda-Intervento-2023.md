@@ -1,0 +1,24 @@
+---
+uniqueName: problematiche-emerse-a-seguito-della-realizzazione
+displayName: "Problematiche emerse a seguito della realizzazione della Scheda Intervento 2023"
+category: "GENERAL"
+tags: []
+---
+
+# Problematiche emerse a seguito della realizzazione della Scheda Intervento 2023
+
+> **File originale:** `MEV/SCHEDA_013/Docs/Test/Problematiche emerse a seguito della realizzazione della Scheda Intervento 2023.docx`  
+> **Tipo:** DOCX
+
+---
+
+Problematiche emerse a seguito  della realizzazione della  Scheda Intervento 2023_13
+Obbligatorietà Codice Fiscale. Per generare un bollettino PagoPA richiede obbligatoriamente la valorizzazione del Codice Fiscale del soggetto Condannato, che il gruppo GdL SIEP ritiene un requisito corretto, anche se al momento è un dato che non viene acquisito in fase di iscrizione in SIES. Al momento il dato deve essere inserito obbligatoriamente al momento in cui si seleziona la funzione di Richiesta generazione Bollettini PagoPA. Si pone quindi il problema per gli utilizzatori di SIEP di come reperire questo dato, che non sempre è presente nemmeno tra i dati dell’estratto esecutivo. Valutare utilizzo dell’applicativo PuntFisco dell’Agenzia delle Entrate.
+Vi sarà comunque il problema dei condannati stranieri per i quali non si riesce a risalire al Codice Fiscale.
+Da evidenziare che, a quanto comunicato per vie brevi dai tecnici che sviluppano PagoPA, l’obbligatorietà del codice fiscale sarà eliminata in un futuro aggiornamento.
+Data scadenza pagamento. E’ un dato richiesto obbligatoriamente da PagoPA, in assenza del quale non vengono generati i Bollettini, ed al superamento della quale non è più consentito il pagamento. Poiché lato esecuzione deve essere sempre consentito il pagamento, anche successivamente alla data di scadenza, fino a quando non viene emesso un nuovo provvedimento che modifichi le modalità di pagamento o la conversione della pena pecuniaria, al momento della richiesta generazione bollettini viene impostata una data di convenienza futura (es. 31-12-2049), che viene riportata sul bollettino cartaceo. In caso di pagamento rateizzato, questa data scadenza, identica, riportata su tutti i bollettini potrebbe indurre in errore al pagamento delle rate nella giusta sequenza.
+Bisogna considerare che per l’esecuzione la data di scadenza per il pagamento della pena pecuniaria in unica soluzione o della prima rata, in caso di rateizzazione, viene calcolata dalla data di avvenuta notifica dell’Ordine di Ingiunzione al pagamento al condannato, mentre le date di scadenza delle rate successive alla prima sono essere calcolate ed impostate dal sistema a ogni fine mese, successivo al mese in cui è avvenuto il pagamento. Pertanto l’attuale impostazione in SIES di generare i bollettini PagoPA, subito dopo la emissione e validazione dell’Ordine di ingiunzione, non permette di comunicare date reali di scadenza a PagoPA, che d’altra parte in assenza della stessa non permette la generazione degli avvisi di pagamento.
+Se si volessero generare i bollettini di pagamento con le reali date di scadenza, bisognerebbe generare l’unico o primo bollettino, in caso di rateizzazione, dopo l’avvenuta notifica dell’ordine di Ingiunzione al condannato, mentre i bollettini relativi alle rate successive alla prima dovrebbero essere generati successivamente all’avvenuto pagamento del primo. Quindi , in questo ultimo caso, bisognerebbe prevedere un doppio invio di bollettini. In ogni caso permarrebbe il problema che PagoPA non permette il pagamento di un bollettino successivamente al superamento della data di scadenza. Valutare se richiedere a PagoPA di eliminare tale vincolo.
+Contenuto del bollettino.pdf. Il documento può essere stampato in SIES dopo la generazione da parte di PagoPA. Sul contenuto del documento il GdL SIEP ha rilevato che ci sarebbe bisogno di aggiungere delle descrizioni, alcune diciture andrebbero modificate. Interpellato PST su quali parti del documento possano essere integrate, hanno risposto di apportare sull’attuale documento prodotto dall’applicazione le integrazioni e le modifiche necessarie, che poi saranno sottoposte alla valutazione di PST/PagoPA per l’eventuale realizzazione.
+PST ha precisato che la messa in linea dell’attuale avviso è stato autorizzato e certificato da PagoPA, l’avviso generato per il pagamento delle sanzioni pecuniarie, è stato fatto sulle indicazioni di Luciano Cinfrignini.
+Impossibilità simulare pagamento di un bollettino in ambiente di test. Al momento non esiste in ambiente di test una funzione che simuli il pagamento di un bollettino, pertanto non è possibile testare in ambiente di prova SIES, presente al Casellario, le funzionalità di verifica dell’avvenuto pagamento (sia web che batch).
